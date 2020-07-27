@@ -48,7 +48,7 @@ deployGKE()
 
     echo "Creating GKE Cluster..."
 
-    gcloud container clusters create acmworkshop --zone=us-central1-a --num-nodes=3 --machine-type=n1-highmem-2 --image-type=Ubuntu
+    gcloud container clusters create ostroskiacmworkshop --zone=us-central1-a --num-nodes=3 --machine-type=n1-highmem-2 --image-type=Ubuntu
 
     kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --user=$(gcloud config get-value account)
 }
@@ -57,7 +57,7 @@ deployAKS()
 {
     echo "Creating AKS Cluster..."
     export AKS_RESOURCE_GROUP=ACM
-    export AKS_CLUSTER_NAME=acmworkshop
+    export AKS_CLUSTER_NAME=ostroskiacmworkshop
 
     az group create --name $AKS_RESOURCE_GROUP --location centralus
     az aks create --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER_NAME --node-count 1 --node-vm-size Standard_B4ms --generate-ssh-keys
