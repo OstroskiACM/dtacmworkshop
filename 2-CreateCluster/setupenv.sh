@@ -48,7 +48,7 @@ deployGKE()
 
     echo "Creating GKE Cluster..."
 
-    gcloud container clusters create ostroskiacmworkshop --zone=us-central1-a --num-nodes=3 --machine-type=n1-highmem-2 --image-type=Ubuntu
+    gcloud container clusters create ostroskiacmworkshop --zone=us-central1-a --num-nodes=3 --machine-type=n1-highmem-2 --image-type=Ubuntu --cluster-version=1.15.12-gke.20
 
     kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --user=$(gcloud config get-value account)
 }
